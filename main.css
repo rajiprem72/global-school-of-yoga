@@ -410,4 +410,81 @@ footer{
 .hero{
   background: #6b4a73;
 }
+/* ---------------------------
+   STUDIO TIMINGS (like image-1)
+---------------------------- */
+.studio-timings{
+  background: #fff;
+  padding: 36px 16px;
+}
+
+.timings-wrap{
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  gap: 22px;
+}
+
+.timings-row{
+  display: grid;
+  grid-template-columns: 78px 1fr;
+  align-items: center;
+  gap: 18px;
+}
+
+.timings-icon{
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+}
+
+/* Color themes similar to screenshot */
+.timings-row.morning .timings-icon{
+  background: #fde9c2;
+  color: #d08a00;
+}
+
+.timings-row.evening .timings-icon{
+  background: #dcecff;
+  color: #5b55b6;
+}
+
+.timings-row.noon .timings-icon{
+  background: #e9fff1;
+  color: #1f8a4c;
+}
+
+.timings-row.weekend .timings-icon{
+  background: #f1e8ff;
+  color: #6d28d9;
+}
+
+.timings-title{
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  line-height: 1.15;
+}
+
+.timings-row.morning .timings-title{ color: #d08a00; }
+.timings-row.evening .timings-title{ color: #6b4a73; } /* purple */
+.timings-row.noon .timings-title{ color: #1f8a4c; }
+.timings-row.weekend .timings-title{ color: #6d28d9; }
+
+.timings-text{
+  font-size: 26px;
+  color: #111;
+  line-height: 1.35;
+}
+
+/* Mobile */
+@media (max-width: 600px){
+  .timings-title{ font-size: 22px; }
+  .timings-text{ font-size: 18px; }
+  .timings-row{ grid-template-columns: 66px 1fr; }
+  .timings-icon{ width: 56px; height: 56px; font-size: 22px; }
+}
 
