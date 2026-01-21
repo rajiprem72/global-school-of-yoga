@@ -25,7 +25,7 @@
 }
 
 .topbar-logo{
-  height: 46px;                   /* ✅ safe height for mobile */
+  height: 76px;                   /* ✅ safe height for mobile */
   width: auto;
   display:block;
   object-fit: contain;            /* ✅ ensures no cropping */
