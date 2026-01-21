@@ -387,7 +387,8 @@ footer{
 }
 
 .hero{
-  padding: 44px 16px 10px;
+  background: #6b4a73;
+  padding: 14px 16px 8px;   /* ✅ reduced top space */
   text-align:center;
 }
 
@@ -397,21 +398,13 @@ footer{
 }
 
 .hero-title{
-  margin: 0 0 12px;
-  font-size: clamp(26px, 3vw, 40px);
-  font-weight: 700;
-  color: #ffffff;
+  margin: 0 0 8px;          /* was 12px */
 }
 
 .hero-subtitle{
-  margin: 0 0 18px;
-  font-size: clamp(18px, 2.6vw, 46px);
-  font-weight: 600;
-  color: rgba(255,255,255,.88);
+  margin: 0 0 10px;         /* was 18px */
 }
-.hero{
-  background: #6b4a73;
-}
+
 /* ---------------------------
    STUDIO TIMINGS (like image-1)
 ---------------------------- */
