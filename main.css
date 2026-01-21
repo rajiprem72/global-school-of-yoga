@@ -260,3 +260,126 @@ footer{
   .logo{ width:108px; height:108px; }
   .quote{ font-size: 14px; }
 }
+
+
+/* ---------------------------
+   OUR SERVICES SECTION
+---------------------------- */
+.services{
+  position: relative;
+  padding: 64px 16px 54px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* optional leaf background like your screenshot */
+.services::before{
+  content:"";
+  position:absolute;
+  left:-90px;
+  top:40px;
+  width: 360px;
+  height: 420px;
+  opacity: .16;
+  background-repeat:no-repeat;
+  background-size: contain;
+  background-image: url("assets/leaf.png"); /* optional; remove if not using */
+  pointer-events:none;
+}
+
+.services-wrap{
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.services-head{
+  text-align:center;
+  margin-bottom: 34px;
+}
+
+.services-kicker{
+  letter-spacing: 4px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #6b4a73; /* your purple tone */
+  margin-bottom: 10px;
+}
+
+.services-title{
+  margin: 0 auto 12px;
+  font-weight: 600;
+  font-size: clamp(30px, 3.6vw, 56px);
+  line-height: 1.12;
+  color: #1f1b2e;
+  max-width: 950px;
+}
+
+.services-subtitle{
+  margin: 0 auto;
+  max-width: 900px;
+  color: rgba(31,27,46,.68);
+  font-size: clamp(16px, 1.6vw, 22px);
+  line-height: 1.6;
+}
+
+/* grid */
+.services-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 56px;
+  align-items:start;
+}
+
+/* card */
+.service-card{
+  text-align:left;
+}
+
+.service-img{
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow:hidden;
+  border-radius: 34px;
+  /* pill-ish corners like screenshot */
+  border-top-left-radius: 90px;
+  border-bottom-right-radius: 90px;
+  box-shadow: 0 18px 45px rgba(17,24,39,.14);
+  background: #f3f4f6;
+}
+
+.service-img img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+}
+
+.service-name{
+  margin: 18px 0 8px;
+  font-size: clamp(28px, 2.2vw, 40px);
+  font-weight: 500;
+  color: #2a2438;
+}
+
+.service-text{
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(31,27,46,.75);
+}
+
+/* responsive */
+@media (max-width: 980px){
+  .services-grid{
+    grid-template-columns: 1fr;
+    gap: 38px;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .service-name{ text-align:left; }
+}
+
+/* if you don't have leaf.png, disable the background easily */
+@media (prefers-reduced-data: reduce){
+  .services::before{ background-image:none; }
+}
