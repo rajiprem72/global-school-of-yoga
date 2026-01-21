@@ -202,20 +202,21 @@ header{
 }
 
 .quote{
-  margin: 18px auto 0;
+  margin: 8px auto 0;              /* ✅ reduced from 18px */
   width: min(720px, 100%);
-  padding: 14px 16px;
+  padding: 12px 14px;              /* ✅ slightly tighter */
   border-radius: 18px;
-  background: rgba(255,255,255,.8);
-  border: 1px dashed rgba(109,40,217,.25);
+  background: rgba(255,255,255,.85);
+  border: 1px dashed rgba(255,255,255,.55);  /* ✅ softer on purple */
   color: #2f2a45;
-  line-height:1.55;
+  line-height: 1.55;
   font-size: 15px;
 }
 
 .quote strong{
-  color: var(--purple);
+  color: #6d28d9; /* or keep var(--purple) if defined */
 }
+
 
 .divider{
   height:1px;
