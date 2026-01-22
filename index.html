@@ -1071,33 +1071,24 @@
   </div>
 </section>
 
-<!-- =========================
- Floating Action Button (FAB) + Popup Menu
- Paste near the end of <body> (before </body>)
-========================= -->
-
-<!-- FAB -->
-<button class="gsy-fab" id="gsyFab" aria-label="Open forms menu" type="button">
-  <!-- Replace src with your yoga icon image (PNG/SVG) -->
-  <img src="assets/yoga-fab-icon.jpeg" alt="Yoga" class="gsy-fab-img">
+<!-- FAB (Floating Yoga Button) -->
+<button class="fab" id="fabBtn" aria-label="Open enquiry menu" aria-expanded="false">
+  <img src="assets/yoga-fab-icon.jpeg" alt="Yoga Menu">
 </button>
 
-<!-- Backdrop -->
-<div class="gsy-fab-backdrop" id="gsyFabBackdrop" aria-hidden="true"></div>
+<!-- FAB Backdrop -->
+<div class="fab-backdrop" id="fabBackdrop" aria-hidden="true"></div>
 
-<!-- Popup menu -->
-<div class="gsy-fab-menu" id="gsyFabMenu" role="dialog" aria-modal="true" aria-hidden="true">
-  <button class="gsy-fab-item" id="gsyGeneralEnquiry" type="button">
-    <span class="gsy-fab-label">General Enquiry Form</span>
-    <span class="gsy-fab-icon">📝</span>
+<!-- FAB Menu -->
+<div class="fab-menu" id="fabMenu" role="menu" aria-hidden="true">
+  <button class="fab-item" type="button" id="fabGeneral" role="menuitem">
+    General Enquiry Form
   </button>
-
-  <button class="gsy-fab-item" id="gsyTeacherTraining" type="button">
-    <span class="gsy-fab-label">Teacher Training Form</span>
-    <span class="gsy-fab-icon">🎓</span>
-  </button>
-
-  <button class="gsy-fab-close" id="gsyFabClose" type="button" aria-label="Close menu">✕</button>
+  <a class="fab-item" role="menuitem"
+     href="https://docs.google.com/forms/d/e/1FAIpQLSehj2d7uNQ4KIMhIjcSA153ejnCx6IUx9ng_d4ozPDEi_4yNg/viewform"
+     target="_blank" rel="noopener">
+    Teacher Training Form
+  </a>
 </div>
 
   
