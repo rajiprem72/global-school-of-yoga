@@ -215,3 +215,66 @@
     closeBox('[data-aff-lightbox]', '[data-aff-full]');
   });
 })();
+
+<script>
+/* =========================
+   FAB logic
+========================= */
+(function(){
+  const root = document.documentElement;
+  const fab = document.getElementById('gsyFab');
+  const backdrop = document.getElementById('gsyFabBackdrop');
+  const menu = document.getElementById('gsyFabMenu');
+  const closeBtn = document.getElementById('gsyFabClose');
+
+  const enquiryBtn = document.getElementById('gsyGeneralEnquiry');
+  const ttcBtn = document.getElementById('gsyTeacherTraining');
+
+  function openMenu(){
+    document.body.classList.add('gsy-fab-open');
+    menu.setAttribute('aria-hidden','false');
+    backdrop.setAttribute('aria-hidden','false');
+  }
+
+  function closeMenu(){
+    document.body.classList.remove('gsy-fab-open');
+    menu.setAttribute('aria-hidden','true');
+    backdrop.setAttribute('aria-hidden','true');
+  }
+
+  fab.addEventListener('click', () => {
+    if(document.body.classList.contains('gsy-fab-open')) closeMenu();
+    else openMenu();
+  });
+
+  backdrop.addEventListener('click', closeMenu);
+  closeBtn.addEventListener('click', closeMenu);
+
+  // ESC closes
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') closeMenu();
+  });
+
+  // 1) General Enquiry Form (you can change this later)
+  enquiryBtn.addEventListener('click', () => {
+    closeMenu();
+    // TODO: replace with your General Enquiry Form link or section id
+    // Example:
+    // window.location.href = "https://docs.google.com/forms/d/e/XXXX/viewform";
+    alert("General Enquiry Form link not set yet. Tell me the link and I will add it.");
+  });
+
+  // 2) Teacher Training Form (given by you)
+  ttcBtn.addEventListener('click', () => {
+    closeMenu();
+    window.open(
+      "https://docs.google.com/forms/d/e/1FAIpQLSehj2d7uNQ4KIMhIjcSA153ejnCx6IUx9ng_d4ozPDEi_4yNg/viewform",
+      "_blank",
+      "noopener"
+    );
+  });
+})();
+</script>
+
+
+
