@@ -183,3 +183,19 @@
     if (e.key === 'Escape') closeLightbox();
   });
 })();
+
+
+
+<script>
+(() => {
+  const track = document.querySelector('[data-test-track]');
+  if (!track) return;
+
+  // Duplicate content to create seamless infinite scrolling
+  track.innerHTML += track.innerHTML;
+
+  // Allow tap-to-pause on mobile
+  const marquee = track.closest('.test-marquee');
+  marquee.addEventListener('click', () => marquee.classList.toggle('paused'));
+})();
+</script>
