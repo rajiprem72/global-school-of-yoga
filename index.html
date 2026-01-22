@@ -492,6 +492,65 @@
   </div>
 </section>
 
+<section class="ttc" id="ttc">
+  <div class="ttc-wrap">
+
+    <div class="ttc-head">
+      <h2 class="ttc-title">YOGA TEACHER TRAINING COURSES</h2>
+      <p class="ttc-sub">
+        Explore our teacher training courses. Swipe to view programs and tap any poster to see it in full screen.
+      </p>
+    </div>
+
+    <div class="ttc-carousel">
+      <button class="ttc-nav prev" type="button" aria-label="Previous" data-ttc-prev>‹</button>
+
+      <div class="ttc-track" data-ttc-track>
+        <!-- Replace src with your uploaded images -->
+        <figure class="ttc-slide">
+          <img src="assets/training/sun-salutation.jpg" alt="Sun Salutation" loading="lazy" data-ttc-img />
+          <figcaption>Sun Salutation</figcaption>
+        </figure>
+
+        <figure class="ttc-slide">
+          <img src="assets/training/antenatal-pregnancy.jpg" alt="Antenatal Pregnancy" loading="lazy" data-ttc-img />
+          <figcaption>Antenatal Pregnancy</figcaption>
+        </figure>
+
+        <figure class="ttc-slide">
+          <img src="assets/training/yoga-therapy.jpg" alt="Yoga Therapy" loading="lazy" data-ttc-img />
+          <figcaption>Yoga Therapy</figcaption>
+        </figure>
+
+        <figure class="ttc-slide">
+          <img src="assets/training/veda-shastra.jpg" alt="Veda Shastra" loading="lazy" data-ttc-img />
+          <figcaption>Veda Shastra</figcaption>
+        </figure>
+
+        <figure class="ttc-slide">
+          <img src="assets/training/hatha-yoga.jpg" alt="Hatha Yoga" loading="lazy" data-ttc-img />
+          <figcaption>Hatha Yoga</figcaption>
+        </figure>
+
+        <figure class="ttc-slide">
+          <img src="assets/training/international-yoga-training.jpg" alt="International Yoga Training" loading="lazy" data-ttc-img />
+          <figcaption>International Yoga Training</figcaption>
+        </figure>
+      </div>
+
+      <button class="ttc-nav next" type="button" aria-label="Next" data-ttc-next>›</button>
+    </div>
+
+    <div class="ttc-dots" data-ttc-dots aria-label="Carousel dots"></div>
+
+  </div>
+
+  <!-- Fullscreen Lightbox -->
+  <div class="ttc-lightbox" data-ttc-lightbox aria-hidden="true">
+    <button class="ttc-close" type="button" aria-label="Close" data-ttc-close>✕</button>
+    <img class="ttc-full" data-ttc-full alt="Full screen poster" />
+  </div>
+</section>
 
 
 <footer class="footer">
@@ -507,5 +566,6 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+  <script src="main.js"></script>
 </body>
 </html>
