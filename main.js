@@ -206,4 +206,35 @@
   track.innerHTML += track.innerHTML; // duplicate for infinite
 })();
 
+(() => {
+  const lightbox = document.querySelector('[data-aff-lightbox]');
+  const full = document.querySelector('[data-aff-full]');
+  const closeBtn = document.querySelector('[data-aff-close]');
+  const imgs = document.querySelectorAll('[data-aff-img]');
+
+  if (!lightbox || !full || !imgs.length) return;
+
+  function open(src, alt) {
+    full.src = src;
+    full.alt = alt || 'Logo';
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.documentElement.style.overflow = 'hidden';
+  }
+
+  function close() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    full.src = '';
+    document.documentElement.style.overflow = '';
+  }
+
+  imgs.forEach(img => {
+    img.addEventListener('click', () => open(img.src, img.alt));
+  });
+
+  closeBtn?.addEventListener('click', close);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+  window.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+})();
 
