@@ -701,37 +701,52 @@
 <section class="founder" id="founder">
   <div class="founder-wrap">
 
-    <div class="founder-head">
+    <header class="founder-head">
       <div class="founder-kicker">ABOUT THE FOUNDER</div>
       <h2 class="founder-name">Achariya &amp; Yoga Guru P. Ganesh Kumar</h2>
-      <p class="founder-tagline">Founder – Global School of Yoga • Yoga Therapist • Mentor &amp; Trainer • Speaker &amp; Educator</p>
-    </div>
+      <p class="founder-tagline">
+        Founder – Global School of Yoga • Yoga Therapist • Mentor &amp; Trainer • Speaker &amp; Educator
+      </p>
+    </header>
 
     <div class="founder-card">
-      <!-- Founder Photo (replace src with your image path) -->
       <div class="founder-photo">
         <img src="assets/founder.png" alt="P. Ganesh Kumar">
       </div>
 
       <div class="founder-body">
         <p class="founder-bio">
-          With a life dedicated to wellness and service, <strong>P. Ganesh Kumar</strong> has been guiding students
-          in authentic yoga practice since <strong>2003</strong>. His teaching blends <strong>traditional yogic wisdom</strong>
+          With a life dedicated to wellness and service, <strong>P. Ganesh Kumar</strong> has been guiding students in
+          authentic yoga practice since <strong>2003</strong>. His teaching blends <strong>traditional yogic wisdom</strong>
           with a <strong>therapeutic approach</strong>, helping learners build strength, improve health, and cultivate inner calm.
           Through disciplined practice and compassionate guidance, he inspires people of all ages to live a balanced and meaningful life.
         </p>
 
-        <div class="founder-highlights">
-          <div class="f-pill">Teaching since <strong>2003</strong></div>
-          <div class="f-pill"><strong>2,00,000+</strong> learners guided</div>
-          <div class="f-pill"><strong>1,000+</strong> yoga trainers mentored</div>
+        <!-- ✅ Highlights as proper cards -->
+        <div class="founder-stats" aria-label="Founder highlights">
+          <div class="stat">
+            <div class="stat-label">Teaching Since</div>
+            <div class="stat-value">2003</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Learners Guided</div>
+            <div class="stat-value">2,00,000+</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Trainers Mentored</div>
+            <div class="stat-value">1,000+</div>
+          </div>
         </div>
 
+        <!-- ✅ Guided By block -->
         <div class="founder-guidedby">
-          <div class="f-label">Guided By</div>
-          <div class="f-value">Trained under <strong>Guruji S. Mani Mozhi Elango</strong> and other eminent yoga gurus of India.</div>
+          <div class="gb-title">Guided By</div>
+          <div class="gb-text">
+            Trained under <strong>Guruji S. Mani Mozhi Elango</strong> and other eminent yoga gurus of India.
+          </div>
         </div>
 
+        <!-- ✅ Credentials collapsible -->
         <details class="founder-credentials">
           <summary>View Credentials</summary>
           <div class="cred-text">
@@ -739,28 +754,45 @@
           </div>
         </details>
 
-        <!-- Optional button to jump to achievements section -->
         <a class="founder-btn" href="#achievements">View Achievements &amp; Records →</a>
       </div>
     </div>
 
-    <!-- Affiliations row (optional) -->
+    <!-- ✅ Affiliations (6 logos in one horizontal straight line, scrollable) -->
     <div class="founder-aff">
       <div class="aff-title">Affiliations &amp; Recognitions</div>
-      <div class="aff-row">
-        <!-- Replace with your logos -->
-        <img src="assets/affiliations/logo1.png" alt="Affiliation 1">
-        <img src="assets/affiliations/logo2.png" alt="Affiliation 2">
-        <img src="assets/affiliations/logo3.png" alt="Affiliation 3">
-        <img src="assets/affiliations/logo4.png" alt="Affiliation 4">
-        <img src="assets/affiliations/logo5.png" alt="Affiliation 5">
-        <img src="assets/affiliations/logo6.png" alt="Affiliation 6">
+
+      <div class="aff-row" data-aff-row>
+        <!-- Replace with your 6 logo image paths -->
+        <button class="aff-item" type="button">
+          <img src="assets/affiliations/logo1.png" alt="Affiliation logo 1" data-aff-img>
+        </button>
+        <button class="aff-item" type="button">
+          <img src="assets/affiliations/logo2.png" alt="Affiliation logo 2" data-aff-img>
+        </button>
+        <button class="aff-item" type="button">
+          <img src="assets/affiliations/logo3.png" alt="Affiliation logo 3" data-aff-img>
+        </button>
+        <button class="aff-item" type="button">
+          <img src="assets/affiliations/logo4.png" alt="Affiliation logo 4" data-aff-img>
+        </button>
+        <button class="aff-item" type="button">
+          <img src="assets/affiliations/logo5.png" alt="Affiliation logo 5" data-aff-img>
+        </button>
+        <button class="aff-item" type="button">
+          <img src="assets/affiliations/logo6.png" alt="Affiliation logo 6" data-aff-img>
+        </button>
       </div>
     </div>
 
   </div>
-</section>
 
+  <!-- ✅ Logo Lightbox -->
+  <div class="aff-lightbox" data-aff-lightbox aria-hidden="true">
+    <button class="aff-close" type="button" aria-label="Close" data-aff-close>✕</button>
+    <img class="aff-full" data-aff-full alt="Affiliation logo full view">
+  </div>
+</section>
   
 
 <footer class="footer">
