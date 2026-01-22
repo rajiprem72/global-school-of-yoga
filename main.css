@@ -1901,3 +1901,164 @@ footer{
   }
 }
 
+/* =========================
+   PROGRAMS CONDUCTED STYLES
+   Add into main.css (towards end)
+========================= */
+.programs{
+  background: linear-gradient(180deg, #ffffff 0%, #f7f3ff 100%);
+  padding: 70px 16px 70px;
+}
+
+.programs-wrap{
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.programs-head{
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.programs-kicker{
+  font-weight: 900;
+  letter-spacing: 4px;
+  font-size: 13px;
+  color: #6b4a73;
+  margin-bottom: 10px;
+}
+
+.programs-title{
+  margin: 0 0 10px;
+  font-size: clamp(28px, 4vw, 54px);
+  font-weight: 900;
+  color: #111827;
+}
+
+.programs-sub{
+  margin: 0 auto;
+  max-width: 920px;
+  color: rgba(17,24,39,.62);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.programs-grid{
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+/* Image */
+.programs-media{
+  position: sticky;
+  top: 90px;
+}
+
+.programs-photo{
+  border-radius: 26px;
+  overflow: hidden;
+  background: #f3e8ff;
+  border: 1px solid rgba(107,74,115,.18);
+  box-shadow: 0 18px 45px rgba(17,24,39,.12);
+}
+
+.programs-photo img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.programs-note{
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: rgba(17,24,39,.55);
+}
+
+/* Card */
+.programs-card{
+  border-radius: 26px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(17,24,39,.10);
+  padding: 16px;
+  box-shadow: 0 18px 45px rgba(17,24,39,.10);
+}
+
+.programs-card-title{
+  font-weight: 900;
+  font-size: 16px;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+/* List */
+.programs-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.programs-list li{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.p-badge{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: rgba(107,74,115,.12);
+  border: 1px solid rgba(107,74,115,.22);
+  font-weight: 900;
+  font-size: 12px;
+  color: #6b4a73;
+  white-space: nowrap;
+}
+
+.p-title{
+  font-weight: 900;
+  color: #2a2438;
+  font-size: 15px;
+  margin-bottom: 3px;
+}
+
+.p-sub{
+  color: rgba(17,24,39,.68);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* CTA */
+.programs-cta{ margin-top: 14px; }
+
+.programs-btn{
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: #6b4a73;
+  color: #fff;
+  font-weight: 900;
+  box-shadow: 0 16px 34px rgba(107,74,115,.22);
+}
+
+/* Mobile */
+@media (max-width: 860px){
+  .programs-grid{
+    grid-template-columns: 1fr;
+  }
+  .programs-media{
+    position: relative;
+    top: auto;
+  }
+}
+
