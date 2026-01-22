@@ -1437,3 +1437,35 @@ footer{
   color: rgba(17,24,39,.58);
   line-height: 1.25;
 }
+
+
+/* ✅ FORCE marquee to scroll (put at end of main.css) */
+.test-marquee{
+  overflow: hidden !important;
+  width: 100% !important;
+  position: relative !important;
+}
+
+.test-track{
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 16px !important;
+  width: max-content !important;
+  animation: testScroll 40s linear infinite !important;
+  will-change: transform !important;
+}
+
+.test-card{
+  flex: 0 0 auto !important;      /* prevents stacking */
+  width: min(520px, 86vw) !important;
+}
+
+@keyframes testScroll{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Pause on touch/hover */
+.test-marquee:hover .test-track{ animation-play-state: paused !important; }
+.test-marquee.paused .test-track{ animation-play-state: paused !important; }
+
