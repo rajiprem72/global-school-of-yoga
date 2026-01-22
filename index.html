@@ -1071,6 +1071,35 @@
   </div>
 </section>
 
+<!-- =========================
+ Floating Action Button (FAB) + Popup Menu
+ Paste near the end of <body> (before </body>)
+========================= -->
+
+<!-- FAB -->
+<button class="gsy-fab" id="gsyFab" aria-label="Open forms menu" type="button">
+  <!-- Replace src with your yoga icon image (PNG/SVG) -->
+  <img src="assets/yoga-fab-icon.png" alt="Yoga" class="gsy-fab-img">
+</button>
+
+<!-- Backdrop -->
+<div class="gsy-fab-backdrop" id="gsyFabBackdrop" aria-hidden="true"></div>
+
+<!-- Popup menu -->
+<div class="gsy-fab-menu" id="gsyFabMenu" role="dialog" aria-modal="true" aria-hidden="true">
+  <button class="gsy-fab-item" id="gsyGeneralEnquiry" type="button">
+    <span class="gsy-fab-label">General Enquiry Form</span>
+    <span class="gsy-fab-icon">📝</span>
+  </button>
+
+  <button class="gsy-fab-item" id="gsyTeacherTraining" type="button">
+    <span class="gsy-fab-label">Teacher Training Form</span>
+    <span class="gsy-fab-icon">🎓</span>
+  </button>
+
+  <button class="gsy-fab-close" id="gsyFabClose" type="button" aria-label="Close menu">✕</button>
+</div>
+
   
   
 <footer class="footer">
