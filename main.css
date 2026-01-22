@@ -1066,4 +1066,28 @@ footer{
     .offer-card{ padding:22px; }
   }
 
+.offer-media{
+  width: 100%;
+  margin: 18px auto 22px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #ececec;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+  background: #fff;
+}
 
+.offer-media-link{
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Single-page friendly: fixed height on mobile so page doesn't become too long */
+.offer-img{
+  width: 100%;
+  height: 340px;          /* mobile banner height */
+  object-fit: cover;      /* crops tall poster nicely */
+  object-position: center;
+  display: block;
+}
