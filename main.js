@@ -199,3 +199,11 @@
   marquee.addEventListener('click', () => marquee.classList.toggle('paused'));
 })();
 </script>
+
+(() => {
+  const track = document.querySelector('[data-test-track]');
+  if (!track) return;
+  track.innerHTML += track.innerHTML; // duplicate for infinite
+})();
+
+
