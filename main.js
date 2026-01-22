@@ -216,65 +216,44 @@
   });
 })();
 
-<script>
-/* =========================
-   FAB logic
-========================= */
-(function(){
-  const root = document.documentElement;
-  const fab = document.getElementById('gsyFab');
-  const backdrop = document.getElementById('gsyFabBackdrop');
-  const menu = document.getElementById('gsyFabMenu');
-  const closeBtn = document.getElementById('gsyFabClose');
+(() => {
+  const fabBtn = document.getElementById("fabBtn");
+  const fabMenu = document.getElementById("fabMenu");
+  const fabBackdrop = document.getElementById("fabBackdrop");
+  const fabGeneral = document.getElementById("fabGeneral");
 
-  const enquiryBtn = document.getElementById('gsyGeneralEnquiry');
-  const ttcBtn = document.getElementById('gsyTeacherTraining');
-
-  function openMenu(){
-    document.body.classList.add('gsy-fab-open');
-    menu.setAttribute('aria-hidden','false');
-    backdrop.setAttribute('aria-hidden','false');
+  function openFab(){
+    document.body.classList.add("fab-open");
+    fabBtn.setAttribute("aria-expanded", "true");
+    fabMenu.setAttribute("aria-hidden", "false");
+    fabBackdrop.setAttribute("aria-hidden", "false");
   }
 
-  function closeMenu(){
-    document.body.classList.remove('gsy-fab-open');
-    menu.setAttribute('aria-hidden','true');
-    backdrop.setAttribute('aria-hidden','true');
+  function closeFab(){
+    document.body.classList.remove("fab-open");
+    fabBtn.setAttribute("aria-expanded", "false");
+    fabMenu.setAttribute("aria-hidden", "true");
+    fabBackdrop.setAttribute("aria-hidden", "true");
   }
 
-  fab.addEventListener('click', () => {
-    if(document.body.classList.contains('gsy-fab-open')) closeMenu();
-    else openMenu();
-  });
+  function toggleFab(){
+    if(document.body.classList.contains("fab-open")) closeFab();
+    else openFab();
+  }
 
-  backdrop.addEventListener('click', closeMenu);
-  closeBtn.addEventListener('click', closeMenu);
+  fabBtn.addEventListener("click", toggleFab);
+  fabBackdrop.addEventListener("click", closeFab);
 
   // ESC closes
-  document.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape') closeMenu();
+  document.addEventListener("keydown", (e) => {
+    if(e.key === "Escape") closeFab();
   });
 
-  // 1) General Enquiry Form (you can change this later)
-  enquiryBtn.addEventListener('click', () => {
-    closeMenu();
-    // TODO: replace with your General Enquiry Form link or section id
-    // Example:
-    // window.location.href = "https://docs.google.com/forms/d/e/XXXX/viewform";
-    alert("General Enquiry Form link not set yet. Tell me the link and I will add it.");
-  });
-
-  // 2) Teacher Training Form (given by you)
-  ttcBtn.addEventListener('click', () => {
-    closeMenu();
-    window.open(
-      "https://docs.google.com/forms/d/e/1FAIpQLSehj2d7uNQ4KIMhIjcSA153ejnCx6IUx9ng_d4ozPDEi_4yNg/viewform",
-      "_blank",
-      "noopener"
-    );
+  // General Enquiry click (replace with your form/page link later)
+  fabGeneral.addEventListener("click", () => {
+    // Example: open a link. Change this to your general enquiry form when ready.
+    // window.open("YOUR_GENERAL_ENQUIRY_FORM_URL", "_blank");
+    alert("General Enquiry Form (link to be added)");
+    closeFab();
   });
 })();
-</script>
-
-
-
