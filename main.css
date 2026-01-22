@@ -2063,11 +2063,11 @@ footer{
 }
 
 /* =========================
-   CO-FOUNDER SECTION STYLES
+   CO-FOUNDER SECTION (FIXED FOR MOBILE)
 ========================= */
 .cofounder{
   background: linear-gradient(180deg, #f7f3ff 0%, #ffffff 100%);
-  padding: 70px 16px 70px;
+  padding: 56px 16px 56px;
 }
 
 .cof-wrap{
@@ -2077,7 +2077,7 @@ footer{
 
 .cof-head{
   text-align: center;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .cof-kicker{
@@ -2089,8 +2089,8 @@ footer{
 }
 
 .cof-title{
-  margin: 0 0 10px;
-  font-size: clamp(28px, 4vw, 54px);
+  margin: 0 0 8px;
+  font-size: clamp(26px, 4vw, 48px);
   font-weight: 900;
   color: #111827;
 }
@@ -2099,38 +2099,48 @@ footer{
   margin: 0 auto;
   max-width: 920px;
   color: rgba(17,24,39,.65);
-  font-size: 15.5px;
-  line-height: 1.7;
+  font-size: 15px;
+  line-height: 1.65;
 }
 
+/* Layout */
 .cof-grid{
-  margin-top: 22px;
+  margin-top: 16px;
   display: grid;
-  grid-template-columns: .85fr 1.15fr;
-  gap: 16px;
+  grid-template-columns: 1fr;
+  gap: 14px;
   align-items: start;
 }
 
-/* Photo */
+/* Remove sticky + make media compact */
 .cof-media{
-  position: sticky;
-  top: 90px;
+  position: relative;   /* ✅ no sticky */
+  top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* SMALL ROUND PHOTO (no distortion) */
 .cof-photo{
-  border-radius: 26px;
+  width: 140px;               /* ✅ small photo */
+  height: 140px;
+  border-radius: 999px;       /* circle */
   overflow: hidden;
   background: #f3e8ff;
   border: 1px solid rgba(107,74,115,.18);
-  box-shadow: 0 18px 45px rgba(17,24,39,.12);
+  box-shadow: 0 14px 32px rgba(17,24,39,.12);
 }
 
 .cof-photo img{
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  object-fit: cover;          /* ✅ prevents distortion */
+  object-position: center;    /* keep face centered */
 }
 
+/* badges */
 .cof-badges{
   display: flex;
   flex-wrap: wrap;
@@ -2152,9 +2162,9 @@ footer{
   color: #6b4a73;
 }
 
-/* Content */
+/* content card */
 .cof-content{
-  border-radius: 26px;
+  border-radius: 24px;
   background: rgba(255,255,255,.92);
   border: 1px solid rgba(17,24,39,.10);
   padding: 16px;
@@ -2168,15 +2178,16 @@ footer{
   line-height: 1.75;
 }
 
+/* highlights */
 .cof-highlights{
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: 1fr;
+  gap: 10px;
   margin-top: 10px;
 }
 
 .cof-highlight{
-  border-radius: 22px;
+  border-radius: 18px;
   background: rgba(107,74,115,.10);
   border: 1px solid rgba(107,74,115,.18);
   padding: 12px;
@@ -2185,7 +2196,7 @@ footer{
 }
 
 .cof-num{
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 900;
   color: #2a2438;
   line-height: 1.2;
@@ -2197,9 +2208,10 @@ footer{
   color: rgba(17,24,39,.66);
 }
 
+/* CTA */
 .cof-cta{
   margin-top: 14px;
-  text-align: left;
+  text-align: center;
 }
 
 .cof-btn{
@@ -2213,13 +2225,18 @@ footer{
   box-shadow: 0 16px 34px rgba(107,74,115,.22);
 }
 
-/* Mobile */
-@media (max-width: 860px){
-  .cof-grid{ grid-template-columns: 1fr; }
-  .cof-media{ position: relative; top: auto; }
-  .cof-cta{ text-align: center; }
-}
+/* Desktop enhancement (optional) */
+@media (min-width: 860px){
+  .cof-grid{
+    grid-template-columns: .55fr 1.45fr;  /* small media, more text */
+    gap: 16px;
+  }
 
-@media (max-width: 640px){
-  .cof-highlights{ grid-template-columns: 1fr; }
+  .cof-highlights{
+    grid-template-columns: repeat(3, minmax(0,1fr));
+  }
+
+  .cof-cta{
+    text-align: left;
+  }
 }
