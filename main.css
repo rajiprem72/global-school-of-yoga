@@ -2264,8 +2264,8 @@ footer{
 }
 
 .fab img{
-  width: 120%;                /* tweak: 110% / 120% */
-  height: 120%;
+  width: 125%;                /* tweak: 110% / 120% */
+  height: 125%;
   object-fit: cover;          /* ✅ crops the rectangle margins */
   border-radius: 50%;
   display: block;
