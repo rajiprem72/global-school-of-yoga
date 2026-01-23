@@ -2261,11 +2261,16 @@ footer{
 }
 
 .fab img{
-  width: 70%;
-  height: 70%;
+  width: 120%;
+  height: 120%;
   object-fit: contain;
   border-radius: 50%;
   display: block;
+}
+.fab{
+  box-shadow:
+    0 14px 30px rgba(0,0,0,.25),
+    0 0 18px rgba(255, 220, 120, .55); /* glow ring */
 }
 
 .fab:active{ transform: scale(.98); }
