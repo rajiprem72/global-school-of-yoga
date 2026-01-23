@@ -2264,8 +2264,8 @@ footer{
 }
 
 .fab img{
-  width: 100%;                /* tweak: 110% / 120% */
-  height: 220%;
+  width: 120%;                /* tweak: 110% / 120% */
+  height: 120%;
   object-fit: cover;          /* ✅ crops the rectangle margins */
   border-radius: 50%;
   display: block;
@@ -2274,6 +2274,7 @@ footer{
   z-index: 0;                 /* ✅ image behind */
 }
 
+.fab{ overflow: hidden; border-radius:50%; }
 
 .fab{
   box-shadow:
