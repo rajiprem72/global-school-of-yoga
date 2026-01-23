@@ -2564,3 +2564,40 @@ footer{
       .affiliations-logos img{ height: 110px; }
       .affiliations-title{ font-size: 28px; }
     }
+/* Social Icons */
+
+.footer-social{
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.social-btn{
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.18);
+  color: #fff;
+
+  transition: transform .15s ease, background .15s ease;
+}
+
+.social-btn:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.16);
+}
+
+.social-btn i{
+  font-size: 18px;
+  line-height: 1;
+}
+
+
