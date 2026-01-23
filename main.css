@@ -2254,19 +2254,27 @@ footer{
   cursor: pointer;
   z-index: 9999;
 
-  background: #6b4a73; /* your purple */
+  background: #6b4a73;
   box-shadow: 0 14px 30px rgba(0,0,0,.25);
+
   display: grid;
   place-items: center;
+
+  overflow: hidden;           /* ✅ clips image inside circle */
 }
 
 .fab img{
-  width: 120%;
-  height: 120%;
-  object-fit: contain;
+  width: 115%;                /* tweak: 110% / 120% */
+  height: 115%;
+  object-fit: cover;          /* ✅ crops the rectangle margins */
   border-radius: 50%;
   display: block;
+
+  position: relative;
+  z-index: 0;                 /* ✅ image behind */
 }
+
+
 .fab{
   box-shadow:
     0 14px 30px rgba(0,0,0,.25),
