@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Global School of Yoga — Download Counter (Private)</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.5; }
+    h1 { margin: 0 0 10px; }
+    .muted { color: #666; font-size: 14px; }
+    .card { border: 1px solid #ddd; border-radius: 10px; padding: 16px; margin: 14px 0; }
+    .big { font-size: 34px; font-weight: 700; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { border-bottom: 1px solid #eee; padding: 10px; text-align: left; }
+    th { background: #fafafa; }
+    .right { text-align: right; }
+    .error { color: #b00020; font-weight: 600; }
+    .ok { color: #0b6; font-weight: 600; }
+    button { padding: 10px 14px; border-radius: 8px; border: 1px solid #ccc; background: #fff; cursor: pointer; }
+    button:hover { background: #f7f7f7; }
+    code { background: #f3f3f3; padding: 2px 6px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h1>Download Counter (Private)</h1>
+  <div class="muted">
+    Repo: <code id="repoLabel"></code> • Counts from GitHub Releases (APK downloads).
+  </div>
+
+  <div class="card">
+    <div class="muted">Total APK downloads (all releases)</div>
+    <div class="big" id="total">Loading…</div>
+    <div class="muted" id="status"></div>
+    <div style="margin-top:12px;">
+      <button id="refreshBtn" type="button">Refresh</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="muted">Breakdown</div>
+    <div id="breakdown">Loading…</div>
+  </div>
+
+  <script>
+    // ✅ Your repo details
+    const owner = "rajiprem72";
+    const repo  = "global-school-of-yoga";
+
+    // Count only assets that end with .apk (you can remove filter if needed)
+    const onlyApk = true;
+
+    document.getElementById("repoLabel").textContent = `${owner}/${repo}`;
+
+    function fmt(n) {
+      return (n || 0).toLocaleString("en-IN");
+    }
+
+    function assetRow(releaseTag, asset) {
+      const name = asset.name || "";
+      const url  = asset.browser_download_url || "#";
+      const dl   = asset.download_count || 0;
+
+      return `
+        <tr>
+          <td>${releaseTag}</td>
+          <td><a href="${url}" target="_blank" rel="noopener">${name}</a></td>
+          <td class="right">${fmt(dl)}</td>
+        </tr>
+      `;
+    }
+
+    async function fetchAllReleases() {
+      // Fetch up to 100 releases. If you ever have more, we can paginate.
+      const url = `https://api.github.com/repos/${owner}/${repo}/releases?per_page=100`;
+      const res = await fetch(url, { headers: { "Accept": "application/vnd.github+json" } });
+      if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
+      return await res.json();
+    }
+
+    async function loadCounts() {
+      const totalEl = document.getElementById("total");
+      const statusEl = document.getElementById("status");
+      const breakdownEl = document.getElementById("breakdown");
+
+      totalEl.textContent = "Loading…";
+      breakdownEl.textContent = "Loading…";
+      statusEl.textContent = "";
+
+      try {
+        const releases = await fetchAllReleases();
+
+        let total = 0;
+        let rows = "";
+        let perReleaseHtml = "";
+
+        for (const r of releases) {
+          const tag = r.tag_name || "(no-tag)";
+          const assets = Array.isArray(r.assets) ? r.assets : [];
+
+          // filter assets
+          const filtered = onlyApk
+            ? assets.filter(a => (a.name || "").toLowerCase().endsWith(".apk"))
+            : assets;
+
+          const releaseTotal = filtered.reduce((sum, a) => sum + (a.download_count || 0), 0);
+          total += releaseTotal;
+
+          // per-release summary
+          perReleaseHtml += `
+            <div style="margin-top:10px;">
+              <div><strong>${tag}</strong> — ${fmt(releaseTotal)} downloads</div>
+            </div>
+          `;
+
+          // per-asset rows
+          for (const a of filtered) rows += assetRow(tag, a);
+        }
+
+        totalEl.textContent = fmt(total);
+        statusEl.innerHTML = `<span class="ok">Updated:</span> ${new Date().toLocaleString()}`;
+
+        breakdownEl.innerHTML = `
+          ${perReleaseHtml || "<div class='muted'>No releases/assets found.</div>"}
+          <h3 style="margin-top:18px;">Assets</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Release</th>
+                <th>Asset</th>
+                <th class="right">Downloads</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rows || "<tr><td colspan='3' class='muted'>No matching assets found.</td></tr>"}
+            </tbody>
+          </table>
+          <div class="muted" style="margin-top:10px;">
+            Note: This is GitHub's release-asset download count (not app installs).
+          </div>
+        `;
+
+      } catch (err) {
+        console.error(err);
+        totalEl.textContent = "N/A";
+        statusEl.innerHTML = `<span class="error">Error:</span> ${err.message}`;
+        breakdownEl.textContent = "Could not load data.";
+      }
+    }
+
+    document.getElementById("refreshBtn").addEventListener("click", loadCounts);
+    loadCounts();
+  </script>
+</body>
+</html>
