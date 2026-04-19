@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yoga Instructor Training</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+}
+
+/* ===== Banner ===== */
+.banner img {
+    width: 100%;
+    display: block;
+}
+
+/* ===== Section ===== */
+.section {
+    padding: 50px 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* ===== Course Section ===== */
+.course-wrapper {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.course-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #1e3c72;
+    margin-bottom: 30px;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.course-item {
+    background: #f9fafc;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #ff7e5f;
+}
+
+.course-item h4 {
+    margin: 0;
+}
+
+.course-item p {
+    margin: 5px 0 0;
+}
+
+/* ===== Certificate ===== */
+.certificate {
+    text-align: center;
+}
+
+.certificate img {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 10px;
+}
+
+/* ===== Form ===== */
+.form-section {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+form {
+    display: grid;
+    gap: 15px;
+}
+
+input, textarea {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+button {
+    padding: 12px;
+    background: #1e3c72;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #16305a;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== Banner ===== -->
+<div class="banner">
+    <img src="banner-yoga-instructor-training.png" alt="Yoga Instructor Training">
+</div>
+
+<!-- ===== Course Details ===== -->
+<section class="section">
+    <div class="container">
+        <div class="course-wrapper">
+
+            <div class="course-title">Yoga Instructor Training</div>
+
+            <div class="course-grid">
+                <div class="course-item"><h4>Course Duration</h4><p>1 Month</p></div>
+                <div class="course-item"><h4>Schedule</h4><p>Monday - Friday (1 Hour)</p></div>
+                <div class="course-item"><h4>Course Timing</h4><p>6 AM | 11:30 AM | 8 PM</p></div>
+                <div class="course-item"><h4>Fees</h4><p>Rs. 9,999/-</p></div>
+                <div class="course-item"><h4>Mode</h4><p>Online & Offline</p></div>
+                <div class="course-item"><h4>Batch Type</h4><p>Regular & Weekend</p></div>
+                <div class="course-item"><h4>Training Type</h4><p>Individual & Group</p></div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== Certificate ===== -->
+<section class="section">
+    <div class="container certificate">
+        <h2>Certification</h2>
+        <img src="yoga-instruction-training-certificate.jpg" alt="Certificate">
+    </div>
+</section>
+
+<!-- ===== Application Form ===== -->
+<section class="section">
+    <div class="container">
+        <div class="form-section">
+
+            <h2>Apply for Yoga Teacher Training</h2>
+
+            <form action="#" method="post">
+
+                <!-- Hidden Course Name -->
+                <input type="hidden" name="course" value="Yoga Teacher Training">
+
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+                <input type="email" name="email" placeholder="Mail ID" required>
+
+                <input type="text" name="qualification" placeholder="Qualification" required>
+
+                <textarea name="address" placeholder="Address" rows="3" required></textarea>
+
+                <input type="text" name="idproof" placeholder="Aadhar / Driving Licence / Passport No" required>
+
+                <button type="submit">Submit Application</button>
+
+            </form>
+
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
