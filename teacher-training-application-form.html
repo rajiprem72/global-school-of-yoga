@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yoga Teacher Training Application</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f7f7f7;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 40px auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    input, textarea, select {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background: #007B5E;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #005f47;
+    }
+
+    .course-details {
+        background: #f1f9f7;
+        padding: 15px;
+        border-radius: 5px;
+        margin-top: 10px;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Apply for Yoga Teacher Training</h2>
+
+    <form>
+
+        <!-- Course Dropdown -->
+        <select id="courseSelect" required>
+            <option value="">Select Course</option>
+            <option value="Yoga Instructor Training">Yoga Instructor Training</option>
+            <option value="200">Yoga International Teacher Training - 200 Hours</option>
+            <option value="300">Yoga International Teacher Training - 300 Hours</option>
+            <option value="500">Yoga International Teacher Training - 500 Hours</option>
+            <option value="Pregnancy">Pregnancy Yoga Teacher Training</option>
+            <option value="Aerial">Aerial Yoga Teacher Training</option>
+            <option value="Grade">Yoga Grade Exam</option>
+        </select>
+
+        <!-- Hidden field -->
+        <input type="hidden" name="course" id="courseHidden">
+
+        <!-- Course Details -->
+        <div id="courseDetails" class="course-details"></div>
+
+        <!-- Form Fields -->
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <input type="email" name="email" placeholder="Mail ID" required>
+        <input type="text" name="qualification" placeholder="Qualification" required>
+        <textarea name="address" placeholder="Address" rows="3" required></textarea>
+        <input type="text" name="idproof" placeholder="Aadhar / Driving Licence / Passport No" required>
+
+        <button type="submit">Submit Application</button>
+
+    </form>
+
+</div>
+
+<script>
+const courseSelect = document.getElementById("courseSelect");
+const detailsBox = document.getElementById("courseDetails");
+const hiddenInput = document.getElementById("courseHidden");
+
+courseSelect.addEventListener("change", function() {
+
+    let value = this.value;
+    hiddenInput.value = this.options[this.selectedIndex].text;
+
+    let details = "";
+
+    switch(value) {
+
+        case "Yoga Instructor Training":
+            details = `
+            <b>Title:</b> Yoga Instructor Training<br>
+            <b>Course Duration:</b> One Month<br>
+            <b>Schedule:</b> Monday-Friday 1 Hour<br>
+            <b>Course Timing:</b> 6 AM | 11:30 AM | 8 PM<br>
+            <b>Fees:</b> Rs.9,999/-<br>
+            <b>Online/Offline:</b> Both<br>
+            <b>Regular/Weekend:</b> Both<br>
+            <b>Individual/Group:</b> Both
+            `;
+            break;
+
+        case "200":
+            details = `
+            <b>Title:</b> Yoga International Teacher Training - 200 Hours<br>
+            <b>Course Duration:</b> Two Month<br>
+            <b>Schedule:</b> 200 Hours<br>
+            <b>Course Timing:</b> 6 AM | 11:30 AM | 8 PM<br>
+            <b>Fees:</b> Rs.39,999/-<br>
+            <b>Online/Offline:</b> Both<br>
+            <b>Regular/Weekend:</b> Both<br>
+            <b>Individual/Group:</b> Individual
+            `;
+            break;
+
+        case "300":
+            details = `
+            <b>Title:</b> Yoga International Teacher Training - 300 Hours<br>
+            <b>Course Duration:</b> Two Month<br>
+            <b>Schedule:</b> 300 Hours<br>
+            <b>Course Timing:</b> 6 AM | 11:30 AM | 8 PM<br>
+            <b>Fees:</b> Rs.59,999/-<br>
+            <b>Online/Offline:</b> Both<br>
+            <b>Regular/Weekend:</b> Both<br>
+            <b>Individual/Group:</b> Individual
+            `;
+            break;
+
+        case "500":
+            details = `
+            <b>Title:</b> Yoga International Teacher Training - 500 Hours<br>
+            <b>Course Duration:</b> Two Month<br>
+            <b>Schedule:</b> 500 Hours<br>
+            <b>Course Timing:</b> 6 AM | 11:30 AM | 8 PM<br>
+            <b>Fees:</b> Rs.79,999/-<br>
+            <b>Online/Offline:</b> Both<br>
+            <b>Regular/Weekend:</b> Both<br>
+            <b>Individual/Group:</b> Individual
+            `;
+            break;
+
+        case "Pregnancy":
+            details = `
+            <b>Title:</b> Pregnancy Yoga Teacher Training<br>
+            <b>Course Duration:</b> 12 Days<br>
+            <b>Schedule:</b> 200 Hours<br>
+            <b>Course Timing:</b> 6 AM | 11:30 AM | 8 PM<br>
+            <b>Fees:</b> Rs.5,999/-<br>
+            <b>Online/Offline:</b> Offline<br>
+            <b>Regular/Weekend:</b> Both<br>
+            <b>Individual/Group:</b> Individual
+            `;
+            break;
+
+        case "Aerial":
+            details = `
+            <b>Title:</b> Aerial Yoga Teacher Training<br>
+            <b>Course Duration:</b> 20 Hours<br>
+            <b>Schedule:</b> Daily<br>
+            <b>Course Timing:</b> 6 AM | 11:30 AM | 8 PM<br>
+            <b>Fees:</b> Rs.14,999/-<br>
+            <b>Online/Offline:</b> Offline<br>
+            <b>Regular/Weekend:</b> Both<br>
+            <b>Individual/Group:</b> Individual
+            `;
+            break;
+
+        case "Grade":
+            details = `
+            🔹 Grade-wise examination system<br>
+            🔹 Fee: ₹1000 (Grade 1)<br>
+            🔹 Exams: January & July (Last Sunday)<br>
+            🔹 Study materials & certificate sent by post<br>
+            🔹 Conducted at common exam centres
+            `;
+            break;
+
+        default:
+            details = "";
+    }
+
+    detailsBox.innerHTML = details;
+});
+</script>
+
+</body>
+</html>
