@@ -76,37 +76,27 @@ body {
     border-radius: 10px;
 }
 
-/* ===== Form ===== */
-.form-section {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+/* ===== CTA Section ===== */
+.cta-section {
+    text-align: center;
 }
 
-form {
-    display: grid;
-    gap: 15px;
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
 }
 
-input, textarea {
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    width: 100%;
-}
-
-button {
-    padding: 12px;
-    background: #1e3c72;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #16305a;
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 /* Mobile */
@@ -154,33 +144,12 @@ button:hover {
     </div>
 </section>
 
-<!-- ===== Application Form ===== -->
+<!-- ===== CTA Button ===== -->
 <section class="section">
-    <div class="container">
-        <div class="form-section">
-
-            <h2>Apply for Yoga Teacher Training</h2>
-
-            <form action="#" method="post">
-
-                <!-- Hidden Course Name -->
-                <input type="hidden" name="course" value="Yoga Teacher Training">
-
-                <input type="text" name="name" placeholder="Full Name" required>
-                <input type="tel" name="phone" placeholder="Phone Number" required>
-                <input type="email" name="email" placeholder="Mail ID" required>
-
-                <input type="text" name="qualification" placeholder="Qualification" required>
-
-                <textarea name="address" placeholder="Address" rows="3" required></textarea>
-
-                <input type="text" name="idproof" placeholder="Aadhar / Driving Licence / Passport No" required>
-
-                <button type="submit">Submit Application</button>
-
-            </form>
-
-        </div>
+    <div class="container cta-section">
+        <a href="teacher-training-application-form.html" class="cta-button">
+            🧘 Fill the Teacher Training Application Form
+        </a>
     </div>
 </section>
 
