@@ -20,62 +20,41 @@ body {
 
 /* ===== Section ===== */
 .section {
-    padding: 50px 20px;
+    padding: 40px 20px;
+    background: #f5f7fb;
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 900px;
     margin: auto;
 }
 
-/* ===== Course Section ===== */
 .course-wrapper {
-    background: #ffffff;
+    background: #fff;
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
 }
 
 .course-title {
     text-align: center;
-    font-size: 32px;
-    font-weight: bold;
-    color: #1e3c72;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
-.course-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+.course-list {
+    display: flex;
+    flex-direction: column;   /* 🔥 This makes everything vertical */
+    gap: 12px;
 }
 
 .course-item {
-    background: #f9fafc;
-    padding: 15px;
+    background: #eef1f5;
+    padding: 12px 15px;
     border-radius: 8px;
-    border-left: 4px solid #ff7e5f;
 }
 
-.course-item h4 {
-    margin: 0;
+h3 {
+    margin-top: 20px;
 }
-
-.course-item p {
-    margin: 5px 0 0;
-}
-
-/* ===== Certificate ===== */
-.certificate {
-    text-align: center;
-}
-
-.certificate img {
-    width: 100%;
-    max-width: 700px;
-    border-radius: 10px;
-}
-
 /* ===== CTA Section ===== */
 .cta-section {
     text-align: center;
@@ -120,42 +99,37 @@ body {
     <div class="container">
         <div class="course-wrapper">
 
-            <div class="course-title">Yoga Instructor Training</div>
+            <h2 class="course-title">Yoga Instructor Training</h2>
 
-            <div class="course-grid">
+            <div class="course-list">
 
-             
-              <div class="course-item"><h4>🌟 *Why Yoga Grade Exams?* </h4></div>
-              <div class="course-item"><h4>✅ Step-by-step yoga learning </h4></div>
-              <div class="course-item"><h4>✅ Theory & practical assessments </h4></div>
-              <div class="course-item"><h4>✅ Yogic philosophy & lifestyle awareness </h4></div>
-              <div class="course-item"><h4>✅ Improves focus, discipline & self-confidence </h4></div>
-              <div class="course-item"><h4>✅ Strong foundation for advanced yoga studies </h4></div>
-              <div class="course-item"><h4>✅ Institutional certificate from Global School of Yoga </h4></div> <br>
-              
-              
-              <div class="course-item"><h4>📝 *Exam Details* </h4></div>
-              <div class="course-item"><h4>🔹 Grade-wise examination system </h4></div>
-              <div class="course-item"><h4>🔹 Fee: ₹1000 (Grade 1) </h4></div>
-              <div class="course-item"><h4>🔹 Exams: January & July (Last Sunday) </h4></div>
-              <div class="course-item"><h4>🔹 Study materials & certificate sent by post </h4></div>
-              <div class="course-item"><h4>🔹 Conducted at common exam centres </h4></div> <br>
-              
-              <div class="course-item"><h4>📝 *Registration* </h4></div>
-              <div class="course-item"><h4>🔹 Individual & group registrations open for Kids & Adults </h4></div>
-              <div class="course-item"><h4> Governed by Universal Yoga Trust | Associate Centre of IYA</h4></div>
-   
-      
+                <h3>🌟 Why Yoga Grade Exams?</h3>
 
+                <div class="course-item">✅ Step-by-step yoga learning</div>
+                <div class="course-item">✅ Theory & practical assessments</div>
+                <div class="course-item">✅ Yogic philosophy & lifestyle awareness</div>
+                <div class="course-item">✅ Improves focus, discipline & self-confidence</div>
+                <div class="course-item">✅ Strong foundation for advanced yoga studies</div>
+                <div class="course-item">✅ Institutional certificate from Global School of Yoga</div>
 
+                <h3>📝 Exam Details</h3>
 
-              
+                <div class="course-item">🔹 Grade-wise examination system</div>
+                <div class="course-item">🔹 Fee: ₹1000 (Grade 1)</div>
+                <div class="course-item">🔹 Exams: January & July (Last Sunday)</div>
+                <div class="course-item">🔹 Study materials & certificate sent by post</div>
+                <div class="course-item">🔹 Conducted at common exam centres</div>
+
+                <h3>📝 Registration</h3>
+
+                <div class="course-item">🔹 Individual & group registrations open for Kids & Adults</div>
+                <div class="course-item">Governed by Universal Yoga Trust | Associate Centre of IYA</div>
+
             </div>
 
         </div>
     </div>
 </section>
-
 <!-- ===== Certificate ===== -->
 <section class="section">
     <div class="container certificate">
