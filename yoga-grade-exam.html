@@ -86,16 +86,19 @@ h3 {
 }
 .certificate {
     text-align: center;
-    padding: 40px 20px;
+    padding: 30px 15px;
 }
 
 .certificate img {
-    max-width: 100%;      /* prevents overflow */
-    width: 500px;         /* control size (adjust if needed) */
-    height: auto;         /* keeps aspect ratio */
-    border-radius: 10px;  
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    margin-top: 20px;
+    display: block;
+    max-width: 100%;
+    width: auto;          /* 🔥 important: prevents stretching */
+    height: auto;         /* 🔥 keeps correct ratio */
+    margin: 20px auto;
+    
+    /* optional styling */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
     
 </style>
