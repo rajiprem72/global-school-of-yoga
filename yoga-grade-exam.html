@@ -91,15 +91,31 @@ h3 {
 
 .certificate img {
     display: block;
-    max-width: 100%;
-    width: auto;          /* 🔥 important: prevents stretching */
-    height: auto;         /* 🔥 keeps correct ratio */
     margin: 20px auto;
-    
-    /* optional styling */
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 100%;
+    height: auto !important;   /* 🔥 force correct ratio */
+    object-fit: contain;       /* 🔥 prevents distortion */
 }
+@media (min-width: 768px) {
+    .certificate img {
+        width: 500px;   /* adjust as needed */
+        max-width: 100%;
+    }
+}
+@media (max-width: 767px) {
+    .certificate img {
+        width: 90%;
+        max-width: 350px;
+        height: auto !important;
+    }
+}
+@media (max-width: 767px) {
+    .certificate img {
+        width: 90%;
+        max-width: 350px;
+        height: auto !important;
+    }
+}    
     
 </style>
 </head>
