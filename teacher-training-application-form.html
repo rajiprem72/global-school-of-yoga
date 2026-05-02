@@ -211,45 +211,7 @@ courseSelect.addEventListener("change", function() {
     detailsBox.innerHTML = details;
 });
 </script>
-
 <script>
-document.querySelector("form").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    // ✅ FIRST create code
-    const appCode = "YT" + Date.now();
-
-    // ✅ THEN use it
-    const formData = {
-        code: appCode,
-        course: document.getElementById("courseSelect").value,
-        name: document.querySelector("[name=name]").value,
-        phone: document.querySelector("[name=phone]").value,
-        email: document.querySelector("[name=email]").value,
-        qualification: document.querySelector("[name=qualification]").value,
-        address: document.querySelector("[name=address]").value,
-        idproof: document.querySelector("[name=idproof]").value
-    };
-
-    // Validation
-    for (let key in formData) {
-        if (!formData[key]) {
-            alert("Please fill all fields");
-            return;
-        }
-    }
-
-   fetch("https://script.google.com/macros/s/AKfycbwgadE-MiqP5BVvY1P8zAI_Vg-05-sJH9ibkoYVD7TktQjVQiqEV60-jkonHex3fpIQ/exec", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify(formData)
-})
-    .then(res => res.json())
-    .then(text => {
-    console.log("RAW RESPONSE:", text); // 👈 VERY IMPORTANT
-    <script>
 document.addEventListener("DOMContentLoaded", function () {
 
     const form = document.querySelector("form");
@@ -261,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const formData = {
             code: appCode,
-            course: document.getElementById("courseHidden").value,
+            course: document.getElementById("courseSelect").value,
             name: document.querySelector("[name=name]").value,
             phone: document.querySelector("[name=phone]").value,
             email: document.querySelector("[name=email]").value,
@@ -285,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             body: JSON.stringify(formData)
         })
-        .then(res => res.text())
+        .then(res => res.text())   // safer for debugging
         .then(text => {
             console.log("Server Response:", text);
 
@@ -305,6 +267,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
-</script>   
+</script>
 </body>
 </html>
