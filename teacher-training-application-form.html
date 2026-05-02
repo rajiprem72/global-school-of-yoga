@@ -211,21 +211,25 @@ courseSelect.addEventListener("change", function() {
     detailsBox.innerHTML = details;
 });
 </script>
-<script>    
+
+<script>
 document.querySelector("form").addEventListener("submit", function(e) {
     e.preventDefault();
 
-   
-   const formData = {
-    code: appCode,
-    course: document.getElementById("courseHidden").value,
-    name: document.querySelector("[name=name]").value,
-    phone: document.querySelector("[name=phone]").value,
-    email: document.querySelector("[name=email]").value,
-    qualification: document.querySelector("[name=qualification]").value,
-    address: document.querySelector("[name=address]").value,
-    idproof: document.querySelector("[name=idproof]").value
-};
+    // ✅ FIRST create code
+    const appCode = "YT" + Date.now();
+
+    // ✅ THEN use it
+    const formData = {
+        code: appCode,
+        course: document.getElementById("courseHidden").value,
+        name: document.querySelector("[name=name]").value,
+        phone: document.querySelector("[name=phone]").value,
+        email: document.querySelector("[name=email]").value,
+        qualification: document.querySelector("[name=qualification]").value,
+        address: document.querySelector("[name=address]").value,
+        idproof: document.querySelector("[name=idproof]").value
+    };
 
     // Validation
     for (let key in formData) {
@@ -234,8 +238,7 @@ document.querySelector("form").addEventListener("submit", function(e) {
             return;
         }
     }
-    const appCode = "YT" + Date.now();
-    
+
     fetch("https://script.google.com/macros/s/AKfycbwgadE-MiqP5BVvY1P8zAI_Vg-05-sJH9ibkoYVD7TktQjVQiqEV60-jkonHex3fpIQ/exec", {
         method: "POST",
         body: JSON.stringify(formData)
@@ -244,14 +247,17 @@ document.querySelector("form").addEventListener("submit", function(e) {
     .then(data => {
         alert("Application Submitted! Your Code: " + appCode);
 
-        // Redirect to payment
-        window.location.href = data.paymentLink;
+        // Redirect safely
+        if (data.paymentLink) {
+            window.location.href = data.paymentLink;
+        }
     })
     .catch(err => {
         alert("Error submitting form");
         console.error(err);
     });
 });
-</script>    
+</script>
+
 </body>
 </html>
