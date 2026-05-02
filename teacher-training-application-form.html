@@ -247,6 +247,9 @@ document.querySelector("form").addEventListener("submit", function(e) {
     body: JSON.stringify(formData)
 })
     .then(res => res.json())
+    .then(text => {
+    console.log("RAW RESPONSE:", text); // 👈 VERY IMPORTANT
+    const data = JSON.parse(text);   
     .then(data => {
         alert("Application Submitted! Your Code: " + appCode);
 
