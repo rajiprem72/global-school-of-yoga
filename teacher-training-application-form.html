@@ -240,13 +240,16 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        fetch("https://script.google.com/macros/s/AKfycbwgadE-MiqP5BVvY1P8zAI_Vg-05-sJH9ibkoYVD7TktQjVQiqEV60-jkonHex3fpIQ/exec", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
+        const formPayload = new FormData();
+for (let key in formData) {
+    formPayload.append(key, formData[key]);
+}
+
+    fetch("https://script.google.com/macros/s/AKfycbwgadE-MiqP5BVvY1P8zAI_Vg-05-sJH9ibkoYVD7TktQjVQiqEV60-jkonHex3fpIQ/exec", {
+        method: "POST",
+        body: formPayload
         })
+            
         .then(res => res.text())   // safer for debugging
         .then(text => {
             console.log("Server Response:", text);
