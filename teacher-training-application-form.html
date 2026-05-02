@@ -78,7 +78,7 @@
             <option value="500">Yoga International Teacher Training - 500 Hours</option>
             <option value="Pregnancy">Pregnancy Yoga Teacher Training</option>
             <option value="Aerial">Aerial Yoga Teacher Training</option>
-            <option value="Aerial">Test</option>
+            <option value="Test">Test</option>
             
         </select>
 
@@ -216,15 +216,16 @@ document.querySelector("form").addEventListener("submit", function(e) {
     e.preventDefault();
 
    
-    const formData = {
-        course: document.getElementById("courseHidden").value,
-        name: document.querySelector("[name=name]").value,
-        phone: document.querySelector("[name=phone]").value,
-        email: document.querySelector("[name=email]").value,
-        qualification: document.querySelector("[name=qualification]").value,
-        address: document.querySelector("[name=address]").value,
-        idproof: document.querySelector("[name=idproof]").value
-    };
+   const formData = {
+    code: appCode,
+    course: document.getElementById("courseHidden").value,
+    name: document.querySelector("[name=name]").value,
+    phone: document.querySelector("[name=phone]").value,
+    email: document.querySelector("[name=email]").value,
+    qualification: document.querySelector("[name=qualification]").value,
+    address: document.querySelector("[name=address]").value,
+    idproof: document.querySelector("[name=idproof]").value
+};
 
     // Validation
     for (let key in formData) {
@@ -233,14 +234,15 @@ document.querySelector("form").addEventListener("submit", function(e) {
             return;
         }
     }
-
+    const appCode = "YT" + Date.now();
+    
     fetch("https://script.google.com/macros/s/AKfycbwgadE-MiqP5BVvY1P8zAI_Vg-05-sJH9ibkoYVD7TktQjVQiqEV60-jkonHex3fpIQ/exec", {
         method: "POST",
         body: JSON.stringify(formData)
     })
     .then(res => res.json())
     .then(data => {
-        alert("Application Submitted! Your Code: " + data.code);
+        alert("Application Submitted! Your Code: " + appCode);
 
         // Redirect to payment
         window.location.href = data.paymentLink;
