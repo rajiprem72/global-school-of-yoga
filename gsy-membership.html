@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Global School of Yoga</title>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  <style>
+
+    body{
+      font-family:Arial;
+      padding:20px;
+      max-width:700px;
+      margin:auto;
+    }
+
+    input,select{
+      width:100%;
+      padding:10px;
+      margin-top:10px;
+      margin-bottom:15px;
+    }
+
+    button{
+      padding:12px 20px;
+      background:#673ab7;
+      color:white;
+      border:none;
+      cursor:pointer;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<h2>Global School of Yoga</h2>
+
+<form id="yogaForm">
+
+  <input type="text" id="fullName" placeholder="Full Name" required>
+
+  <input type="number" id="age" placeholder="Age" required>
+
+  <input type="date" id="dob" required>
+
+  <input type="text" id="mobile" placeholder="Mobile Number" required>
+
+  <input type="email" id="email" placeholder="Email ID" required>
+
+  <input type="text" id="address1" placeholder="Address Line 1" required>
+
+  <input type="text" id="address2" placeholder="Address Line 2">
+
+  <input type="text" id="pinCode" placeholder="Pin Code">
+
+  <input type="text" id="state" placeholder="State">
+
+  <input type="text" id="country" placeholder="Country">
+
+  <select id="mode" required>
+
+    <option value="">Select Mode</option>
+
+    <option>Online</option>
+    <option>Yoga Studio</option>
+    <option>Home Yoga</option>
+
+  </select>
+
+  <select id="location" required></select>
+
+  <select id="plan" required></select>
+
+  <button type="submit">
+    Submit & Pay
+  </button>
+
+</form>
+
+<script>
+
+const SCRIPT_URL =
+"https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec";
+
+const mode = document.getElementById("mode");
+const locationSelect = document.getElementById("location");
+const planSelect = document.getElementById("plan");
+
+const dataMap = {
+
+  "Online": {
+
+    "International": [
+
+      "Adults - Group Session - 5 Days/Week - Rs.4000",
+      "Adults - Group Session - 3 Days/Week - Rs.3000"
+
+    ],
+
+    "India": [
+
+      "Adults - Group Session - 5 Days/Week - Rs.2000",
+      "Adults - Group Session - 3 Days/Week - Rs.1500"
+
+    ]
+  },
+
+  "Yoga Studio": {
+
+    "Anna Nagar": [
+
+      "Adults - Monthly - Rs.2500",
+      "Adults - Quarterly - Rs.6000"
+
+    ],
+
+    "Korattur": [
+
+      "Adults - Monthly - Rs.2000",
+      "Adults - Quarterly - Rs.5000"
+
+    ],
+
+    "Pattravakkam": [
+
+      "Adults - Monthly - Rs.2000",
+      "Adults - Quarterly - Rs.5000"
+
+    ]
+  },
+
+  "Home Yoga": {
+
+    "At your Home": [
+
+      "For 1 Person - 3 Days/Week - Rs.7200",
+      "For 1 Person - 5 Days/Week - Rs.12000"
+
+    ]
+  }
+};
+
+mode.addEventListener("change", function(){
+
+  locationSelect.innerHTML = "";
+
+  planSelect.innerHTML = "";
+
+  Object.keys(dataMap[this.value]).forEach(function(loc){
+
+    let option = document.createElement("option");
+
+    option.text = loc;
+
+    locationSelect.add(option);
+
+  });
+
+});
+
+locationSelect.addEventListener("change", function(){
+
+  planSelect.innerHTML = "";
+
+  dataMap[mode.value][this.value]
+    .forEach(function(plan){
+
+      let option = document.createElement("option");
+
+      option.text = plan;
+
+      planSelect.add(option);
+
+    });
+
+});
+
+document.getElementById("yogaForm")
+.addEventListener("submit", async function(e){
+
+  e.preventDefault();
+
+  const payload = {
+
+    fullName:
+      document.getElementById("fullName").value,
+
+    age:
+      document.getElementById("age").value,
+
+    dob:
+      document.getElementById("dob").value,
+
+    mobile:
+      document.getElementById("mobile").value,
+
+    email:
+      document.getElementById("email").value,
+
+    address1:
+      document.getElementById("address1").value,
+
+    address2:
+      document.getElementById("address2").value,
+
+    pinCode:
+      document.getElementById("pinCode").value,
+
+    state:
+      document.getElementById("state").value,
+
+    country:
+      document.getElementById("country").value,
+
+    mode:
+      mode.value,
+
+    location:
+      locationSelect.value,
+
+    plan:
+      planSelect.value
+  };
+
+  const response = await fetch(SCRIPT_URL, {
+
+    method:"POST",
+
+    body:JSON.stringify(payload)
+  });
+
+  const result = await response.json();
+
+  if(result.status === "success"){
+
+    const options = {
+
+      key: "YOUR_RAZORPAY_KEY",
+
+      amount:
+        result.totalAmount * 100,
+
+      currency: "INR",
+
+      name: "Global School of Yoga",
+
+      description:
+        result.participantId,
+
+      handler: function (paymentResponse) {
+
+        alert(
+          "Payment Successful\nPayment ID: " +
+          paymentResponse.razorpay_payment_id
+        );
+      }
+    };
+
+    const rzp =
+      new Razorpay(options);
+
+    rzp.open();
+  }
+});
+
+</script>
+
+</body>
+</html>
