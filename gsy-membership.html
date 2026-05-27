@@ -459,115 +459,161 @@ planSelect.addEventListener("change", function(){
     .innerText = totalFee;
 
 });  
-  document.getElementById("yogaForm")
+document.getElementById("yogaForm")
 .addEventListener("submit", async function(e){
 
   e.preventDefault();
 
-  const payload = {
+  try{
 
-    fullName:
-      document.getElementById("fullName").value,
+    // ======================================
+    // PAYLOAD
+    // ======================================
 
-    age:
-      document.getElementById("age").value,
+    const payload = {
 
-    dob:
-      document.getElementById("dob").value,
+      fullName:
+        document.getElementById("fullName").value,
 
-    mobile:
-      document.getElementById("mobile").value,
+      age:
+        document.getElementById("age").value,
 
-    email:
-      document.getElementById("email").value,
+      dob:
+        document.getElementById("dob").value,
 
-    address1:
-      document.getElementById("address1").value,
+      mobile:
+        document.getElementById("mobile").value,
 
-    address2:
-      document.getElementById("address2").value,
+      email:
+        document.getElementById("email").value,
 
-    pinCode:
-      document.getElementById("pinCode").value,
+      address1:
+        document.getElementById("address1").value,
 
-    state:
-      document.getElementById("state").value,
+      address2:
+        document.getElementById("address2").value,
 
-    country:
-      document.getElementById("country").value,
+      pinCode:
+        document.getElementById("pinCode").value,
 
-    mode:
-      mode.value,
+      state:
+        document.getElementById("state").value,
 
-    location:
-      locationSelect.value,
+      country:
+        document.getElementById("country").value,
 
-    plan:
-      planSelect.value
-  };
+      mode:
+        mode.value,
 
-//rzp_live_S3kealCGcLTw79
-const response = await fetch(SCRIPT_URL, {
+      location:
+        locationSelect.value,
 
-  method:"POST",
+      plan:
+        planSelect.value
+    };
 
-  headers:{
-    "Content-Type":"application/json"
-  },
+    console.log("Payload:", payload);
 
-  body:JSON.stringify(payload)
+    // ======================================
+    // FETCH
+    // ======================================
 
-});
+    const response = await fetch(SCRIPT_URL, {
 
-const result =
-  await response.json();
+      method:"POST",
 
-console.log(result);
+      headers:{
+        "Content-Type":"application/json"
+      },
 
-if(result.status === "success"){
+      body: JSON.stringify(payload)
 
-  alert(
-    "Data Stored Successfully"
-  );
+    });
 
-  const options = {
+    console.log("Raw Response:", response);
 
-    key: "rzp_live_S3kealCGcLTw79",
+    // ======================================
+    // RAW TEXT FIRST
+    // ======================================
 
-    amount:
-      result.totalAmount * 100,
+    const rawText =
+      await response.text();
 
-    currency: "INR",
+    console.log("Raw Text:", rawText);
 
-    name:
-      "Global School of Yoga",
+    // ======================================
+    // JSON PARSE
+    // ======================================
 
-    description:
-      result.participantId,
+    const result =
+      JSON.parse(rawText);
 
-    handler: function (paymentResponse) {
+    console.log("Parsed Result:", result);
+
+    // ======================================
+    // SUCCESS
+    // ======================================
+
+    if(result.status === "success"){
 
       alert(
-        "Payment Successful\n\n" +
-        paymentResponse
-          .razorpay_payment_id
+        "Data Stored Successfully"
+      );
+
+      const options = {
+
+        key:
+          "rzp_live_S3kealCGcLTw79",
+
+        amount:
+          result.totalAmount * 100,
+
+        currency:
+          "INR",
+
+        name:
+          "Global School of Yoga",
+
+        description:
+          result.participantId,
+
+        handler: function(paymentResponse){
+
+          alert(
+            "Payment Successful\n\n" +
+            paymentResponse
+              .razorpay_payment_id
+          );
+        }
+
+      };
+
+      console.log("Opening Razorpay");
+
+      const rzp =
+        new Razorpay(options);
+
+      rzp.open();
+
+    }else{
+
+      alert(
+        "Server Error : " +
+        result.message
       );
     }
 
-  };
+  }catch(error){
 
-  const rzp =
-    new Razorpay(options);
+    console.error(error);
 
-  rzp.open();
+    alert(
+      "Javascript Error:\n\n" +
+      error.message
+    );
+  }
 
-}else{
-
-  alert(
-    "Error : " + result.message
-  );
-}  
-});  
+});
 </script>
 
 </body>
