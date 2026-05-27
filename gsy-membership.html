@@ -94,6 +94,48 @@
  
 </select>
 
+<!-- FEE DETAILS -->
+
+<div id="feeSummary" style="
+
+  display:none;
+  background:#f5f5f5;
+  border:2px solid #673ab7;
+  padding:20px;
+  border-radius:12px;
+  margin-top:20px;
+  margin-bottom:20px;
+  font-size:18px;
+  line-height:1.8;
+
+">
+
+  <h3 style="margin-top:0; color:#673ab7;">
+    Fee Details
+  </h3>
+
+  <div>
+    Registration Fee :
+    ₹<span id="registrationFee">0</span>
+  </div>
+
+  <div>
+    Course Fee :
+    ₹<span id="courseFee">0</span>
+  </div>
+
+  <hr>
+
+  <div style="font-size:24px; font-weight:bold;">
+
+    Total Amount :
+    ₹<span id="totalFee">0</span>
+
+  </div>
+
+</div>
+  
+
   <button type="submit">
     Submit & Pay
   </button>
@@ -278,22 +320,89 @@ planSelect.innerHTML =
 
 locationSelect.addEventListener("change", function(){
 
-  planSelect.innerHTML =
-  '<option value="">Select Yoga Plan</option>';
+planSelect.addEventListener("change", function(){
 
-  dataMap[mode.value][this.value]
-    .forEach(function(plan){
+  const selectedPlan =
+    this.value;
 
-      let option = document.createElement("option");
+  if(!selectedPlan){
 
-      option.text = plan;
+    document.getElementById("feeSummary")
+      .style.display = "none";
 
-      planSelect.add(option);
+    return;
+  }
 
-    });
+  // ==========================================
+  // REGISTRATION FEE
+  // ==========================================
+
+  let registrationFee = 0;
+
+  if(mode.value === "Online"){
+
+    if(locationSelect.value === "International"){
+
+      registrationFee = 1000;
+
+    }else{
+
+      registrationFee = 500;
+    }
+
+  }else if(mode.value === "Yoga Studio"){
+
+    registrationFee = 1500;
+
+  }else if(mode.value === "Home Yoga"){
+
+    registrationFee = 1000;
+  }
+
+  // ==========================================
+  // COURSE FEE
+  // ==========================================
+
+  let courseFee = 0;
+
+  const regex =
+    /Rs\.?\s?([\d,]+)/i;
+
+  const match =
+    selectedPlan.match(regex);
+
+  if(match){
+
+    courseFee =
+      parseInt(
+        match[1].replace(/,/g,"")
+      );
+  }
+
+  // ==========================================
+  // TOTAL
+  // ==========================================
+
+  const totalFee =
+    registrationFee + courseFee;
+
+  // ==========================================
+  // UPDATE UI
+  // ==========================================
+
+  document.getElementById("feeSummary")
+    .style.display = "block";
+
+  document.getElementById("registrationFee")
+    .innerText = registrationFee;
+
+  document.getElementById("courseFee")
+    .innerText = courseFee;
+
+  document.getElementById("totalFee")
+    .innerText = totalFee;
 
 });
-
 document.getElementById("yogaForm")
 .addEventListener("submit", async function(e){
 
