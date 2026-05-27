@@ -86,12 +86,17 @@
 
   </select>
 
-  <select id="location" required>
- 
-  </select>
+<select id="location" required>
+  <option value="">
+    Select Location
+  </option>
+</select>
 
-  <select id="plan" required>
-  </select>
+<select id="plan" required>
+  <option value="">
+    Select Yoga Plan
+  </option>
+</select>
 
   <button type="submit">
     Submit & Pay
@@ -257,9 +262,11 @@ const dataMap = {
 
 mode.addEventListener("change", function(){
 
-  locationSelect.innerHTML = "";
+ locationSelect.innerHTML =
+  '<option value="">Select Location</option>';
 
-  planSelect.innerHTML = "";
+planSelect.innerHTML =
+  '<option value="">Select Yoga Plan</option>';
 
   Object.keys(dataMap[this.value]).forEach(function(loc){
 
@@ -275,7 +282,8 @@ mode.addEventListener("change", function(){
 
 locationSelect.addEventListener("change", function(){
 
-  planSelect.innerHTML = "";
+  planSelect.innerHTML =
+  '<option value="">Select Yoga Plan</option>';
 
   dataMap[mode.value][this.value]
     .forEach(function(plan){
