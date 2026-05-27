@@ -322,47 +322,67 @@ document.getElementById("yogaForm")
       planSelect.value
   };
 
-  const response = await fetch(SCRIPT_URL, {
+//rzp_live_S3kealCGcLTw79
+const response = await fetch(SCRIPT_URL, {
 
-    method:"POST",
+  method:"POST",
 
-    body:JSON.stringify(payload)
-  });
+  headers:{
+    "Content-Type":"application/json"
+  },
 
-  const result = await response.json();
+  body:JSON.stringify(payload)
 
-  if(result.status === "success"){
-
-    const options = {
-
-      key: "rzp_live_S3kealCGcLTw79",
-
-      amount:
-        result.totalAmount * 100,
-
-      currency: "INR",
-
-      name: "Global School of Yoga",
-
-      description:
-        result.participantId,
-
-      handler: function (paymentResponse) {
-
-        alert(
-          "Payment Successful\nPayment ID: " +
-          paymentResponse.razorpay_payment_id
-        );
-      }
-    };
-
-    const rzp =
-      new Razorpay(options);
-
-    rzp.open();
-  }
 });
 
+const result =
+  await response.json();
+
+console.log(result);
+
+if(result.status === "success"){
+
+  alert(
+    "Data Stored Successfully"
+  );
+
+  const options = {
+
+    key: "rzp_live_S3kealCGcLTw79",
+
+    amount:
+      result.totalAmount * 100,
+
+    currency: "INR",
+
+    name:
+      "Global School of Yoga",
+
+    description:
+      result.participantId,
+
+    handler: function (paymentResponse) {
+
+      alert(
+        "Payment Successful\n\n" +
+        paymentResponse
+          .razorpay_payment_id
+      );
+    }
+
+  };
+
+  const rzp =
+    new Razorpay(options);
+
+  rzp.open();
+
+}else{
+
+  alert(
+    "Error : " + result.message
+  );
+}  
 </script>
 
 </body>
