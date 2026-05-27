@@ -95,6 +95,7 @@
 </select>
 
 <!-- FEE DETAILS -->
+<!-- FEE DETAILS -->
 
 <div id="feeSummary" style="
 
@@ -115,26 +116,33 @@
   </h3>
 
   <div>
-    Registration Fee :
+
+    Registration Fee (One Time Fee) :
     ₹<span id="registrationFee">0</span>
+
   </div>
 
   <div>
+
     Course Fee :
     ₹<span id="courseFee">0</span>
+
   </div>
 
   <hr>
 
-  <div style="font-size:24px; font-weight:bold;">
+  <div style="
+    font-size:24px;
+    font-weight:bold;
+    color:#4b0082;
+  ">
 
-    Total Amount :
+    Total Amount Payable :
     ₹<span id="totalFee">0</span>
 
   </div>
 
 </div>
-  
 
   <button type="submit">
     Submit & Pay
@@ -300,25 +308,72 @@ const dataMap = {
 
 mode.addEventListener("change", function(){
 
- locationSelect.innerHTML =
-  '';
+  locationSelect.innerHTML =
+    '<option value="">Select Location</option>';
 
-planSelect.innerHTML =
-  '<option value="">Select Yoga Plan</option>';
+  planSelect.innerHTML =
+    '<option value="">Select Yoga Plan</option>';
+
+  document.getElementById("feeSummary")
+    .style.display = "none";
 
   Object.keys(dataMap[this.value]).forEach(function(loc){
 
-    let option = document.createElement("option");
+    if(loc !== "Select Location"){
 
-    option.text = loc;
+      let option =
+        document.createElement("option");
 
-    locationSelect.add(option);
+      option.text = loc;
+
+      option.value = loc;
+
+      locationSelect.add(option);
+    }
 
   });
 
 });
 
+
+// ==========================================
+// LOCATION CHANGE
+// ==========================================
+
 locationSelect.addEventListener("change", function(){
+
+  planSelect.innerHTML =
+    '<option value="">Select Yoga Plan</option>';
+
+  document.getElementById("feeSummary")
+    .style.display = "none";
+
+  const plans =
+    dataMap[mode.value][this.value];
+
+  if(plans){
+
+    plans.forEach(function(plan){
+
+      let option =
+        document.createElement("option");
+
+      option.text = plan;
+
+      option.value = plan;
+
+      planSelect.add(option);
+
+    });
+
+  }
+
+});
+
+
+// ==========================================
+// PLAN CHANGE
+// ==========================================
 
 planSelect.addEventListener("change", function(){
 
@@ -403,7 +458,8 @@ planSelect.addEventListener("change", function(){
     .innerText = totalFee;
 
 });
-document.getElementById("yogaForm")
+  
+  document.getElementById("yogaForm")
 .addEventListener("submit", async function(e){
 
   e.preventDefault();
