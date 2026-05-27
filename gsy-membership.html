@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -515,54 +516,42 @@ document.getElementById("yogaForm")
     console.log("Payload:", payload);
 
     // ======================================
+    // FORMDATA
+    // ======================================
+
+    const formData = new FormData();
+
+    for(const key in payload){
+
+      formData.append(
+        key,
+        payload[key]
+      );
+
+    }
+
+    // ======================================
     // FETCH
     // ======================================
 
     const response = await fetch(SCRIPT_URL, {
 
-      method:"POST",
+      method: "POST",
 
-      const formData = new FormData();
-
-for (const key in payload) {
-
-  formData.append(key, payload[key]);
-
-}
-
-const response = await fetch(SCRIPT_URL, {
-
-  method: "POST",
-
-  body: formData
-
-});
-
-const result = await response.json();
-
-      body: JSON.stringify(payload)
+      body: formData
 
     });
 
-    console.log("Raw Response:", response);
+    console.log("Response:", response);
 
     // ======================================
-    // RAW TEXT FIRST
-    // ======================================
-
-    const rawText =
-      await response.text();
-
-    console.log("Raw Text:", rawText);
-
-    // ======================================
-    // JSON PARSE
+    // RESULT
     // ======================================
 
     const result =
-      JSON.parse(rawText);
+      await response.json();
 
-    console.log("Parsed Result:", result);
+    console.log("Result:", result);
 
     // ======================================
     // SUCCESS
@@ -628,6 +617,8 @@ const result = await response.json();
   }
 
 });
+
+
 </script>
 
 </body>
