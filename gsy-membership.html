@@ -522,9 +522,23 @@ document.getElementById("yogaForm")
 
       method:"POST",
 
-      headers:{
-        "Content-Type":"application/json"
-      },
+      const formData = new FormData();
+
+for (const key in payload) {
+
+  formData.append(key, payload[key]);
+
+}
+
+const response = await fetch(SCRIPT_URL, {
+
+  method: "POST",
+
+  body: formData
+
+});
+
+const result = await response.json();
 
       body: JSON.stringify(payload)
 
