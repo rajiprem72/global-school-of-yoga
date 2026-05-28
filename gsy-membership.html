@@ -597,11 +597,8 @@ document.getElementById("yogaForm")
       };
 
       console.log("Opening Razorpay");
-
-      const rzp =
-        new Razorpay(options);
-
-      rzp.open();
+      window.location.href =
+      result.paymentLink;
 
     }else{
 
