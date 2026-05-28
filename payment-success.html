@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Payment Successful
+  </title>
+
+  <style>
+
+    body{
+
+      margin:0;
+      padding:0;
+
+      font-family:Arial, sans-serif;
+
+      background:#f5f7fa;
+
+      display:flex;
+
+      justify-content:center;
+
+      align-items:center;
+
+      height:100vh;
+    }
+
+    .container{
+
+      background:white;
+
+      width:90%;
+      max-width:600px;
+
+      padding:40px;
+
+      border-radius:16px;
+
+      box-shadow:
+        0 5px 20px rgba(0,0,0,0.1);
+
+      text-align:center;
+    }
+
+    .success-icon{
+
+      font-size:70px;
+
+      color:green;
+
+      margin-bottom:20px;
+    }
+
+    h1{
+
+      color:#222;
+
+      margin-bottom:15px;
+    }
+
+    p{
+
+      color:#555;
+
+      line-height:1.7;
+    }
+
+    .payment-box{
+
+      margin-top:30px;
+
+      background:#f0f4f8;
+
+      padding:20px;
+
+      border-radius:10px;
+
+      text-align:left;
+    }
+
+    .payment-box p{
+
+      margin:10px 0;
+    }
+
+    .home-btn{
+
+      display:inline-block;
+
+      margin-top:30px;
+
+      padding:14px 28px;
+
+      background:#0d6efd;
+
+      color:white;
+
+      text-decoration:none;
+
+      border-radius:8px;
+
+      font-weight:bold;
+    }
+
+    .home-btn:hover{
+
+      background:#0b5ed7;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="success-icon">
+
+      ✅
+
+    </div>
+
+    <h1>
+
+      Payment Successful
+
+    </h1>
+
+    <p>
+
+      Thank you for registering with
+      <strong>
+        Global School of Yoga
+      </strong>.
+
+      <br><br>
+
+      Your payment has been successfully received.
+
+      <br><br>
+
+      Our team will contact you shortly
+      regarding your yoga classes,
+      onboarding details,
+      and schedule information.
+
+    </p>
+
+    <div class="payment-box">
+
+      <p>
+
+        <strong>
+          Payment ID:
+        </strong>
+
+        <span id="paymentId">
+          -
+        </span>
+
+      </p>
+
+      <p>
+
+        <strong>
+          Payment Status:
+        </strong>
+
+        SUCCESS
+
+      </p>
+
+    </div>
+
+    <a
+      class="home-btn"
+      href="https://app.globalschoolofyoga.com/index.html"
+    >
+
+      Go To Home Page
+
+    </a>
+
+  </div>
+
+  <script>
+
+    // ==========================================
+    // GET QUERY PARAMS
+    // ==========================================
+
+    const params =
+      new URLSearchParams(
+        window.location.search
+      );
+
+    // ==========================================
+    // PAYMENT ID
+    // ==========================================
+
+    const paymentId =
+      params.get(
+        "razorpay_payment_id"
+      );
+
+    if(paymentId){
+
+      document
+        .getElementById("paymentId")
+        .innerText =
+          paymentId;
+    }
+
+  </script>
+
+</body>
+
+</html>
