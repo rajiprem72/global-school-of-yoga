@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "name": "Global School of Yoga - Head Office",
+    "type": "Yoga Studio",
+    "address": "AH -129, 4th Street, AH Block,8th Main Road, Shanthicolony, Anna Nagar",
+    "city": "Chennai",
+    "district": "Chennai",
+    "state": "Tamil Nadu",
+    "pincode": "600040",
+    "country": "India",
+    "phone": ["+91 95516 25800"],
+    "email": "mail2globalschoolofyoga@gmail.com",
+    "website": "https://www.globalschoolofyoga.com/",
+    "latitude": 13.081203494987053, 
+    "longitude": 80.21325616499223
+  },
+ 
+ {
+    "id": 2,
+    "name": "Global School of Yoga - Korattur Branch",
+    "type": "Yoga Studio",
+    "address": "NO:275, 11th Street, Opp. Sterling Lotus Apts., Near Vivekananda School, TNHB, Korattur",
+    "city": "Chennai",
+    "district": "Chennai",
+    "state": "Tamil Nadu",
+    "pincode": "600080",
+    "country": "India",
+    "phone": ["+91 95516 25800"],
+    "email": "mail2globalschoolofyoga@gmail.com",
+    "website": "https://www.globalschoolofyoga.com/",
+    "latitude": 13.120225941751984, 
+    "longitude": 80.16930445936042
+  },
+ {
+    "id": 3,
+    "name": "Global School of Yoga - Ambattur Branch",
+    "type": "Yoga Studio",
+    "address": "No: 39, G4 Valli Apartments, Mathavi Street, Karukku Main Rd, Ambattur",
+    "city": "Chennai",
+    "district": "Chennai",
+    "state": "Tamil Nadu",
+    "pincode": "600053",
+    "country": "India",
+    "phone": ["+91 95516 25800"],
+    "email": "mail2globalschoolofyoga@gmail.com",
+    "website": "https://www.globalschoolofyoga.com/",
+    "latitude": 13.118214064406676, 
+    "longitude": 80.16976970308546
+  }
+]
