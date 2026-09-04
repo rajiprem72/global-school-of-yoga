@@ -1358,8 +1358,72 @@
 
   
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-  <script src="main.js"></script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<script>
+  /* =========================================
+     PURASAIVAKKAM GRAND OPENING POPUP
+     Show until 06 September 2026
+     Automatically remove from 07 September
+     ========================================= */
+
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const popup = document.getElementById("purasaiPopup");
+    const closeButton = document.getElementById("purasaiPopupClose");
+
+    if (!popup || !closeButton) return;
+
+    /*
+      Opening is on Sunday, 06 September 2026.
+
+      Popup will be displayed before:
+      07 September 2026, 00:00 IST
+    */
+    const expiryDate = new Date("2026-09-07T00:00:00+05:30");
+
+    const now = new Date();
+
+    if (now < expiryDate) {
+
+      popup.classList.add("show");
+      popup.setAttribute("aria-hidden", "false");
+
+    }
+
+    function closePopup() {
+      popup.classList.remove("show");
+      popup.setAttribute("aria-hidden", "true");
+    }
+
+    closeButton.addEventListener("click", closePopup);
+
+    /*
+      Close when clicking the dark background
+    */
+    popup.addEventListener("click", function (event) {
+
+      if (event.target === popup) {
+        closePopup();
+      }
+
+    });
+
+    /*
+      Close with ESC key
+    */
+    document.addEventListener("keydown", function (event) {
+
+      if (event.key === "Escape") {
+        closePopup();
+      }
+
+    });
+
+  });
+</script>
+
+<script src="main.js"></script>
 </body>
 </html>
