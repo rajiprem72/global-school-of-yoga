@@ -10,7 +10,7 @@
     "pincode": "600040",
     "country": "India",
     "phone": ["+91 95516 25800"],
-    "email": "mail2globalschoolofyoga@gmail.com",
+    "email": "annanagar@globalschoolofyoga.com",
     "website": "https://www.globalschoolofyoga.com/",
     "latitude": 13.081203494987053, 
     "longitude": 80.21325616499223
@@ -26,7 +26,7 @@
     "pincode": "600080",
     "country": "India",
     "phone": ["+91 95516 25800"],
-    "email": "mail2globalschoolofyoga@gmail.com",
+    "email": "korattur@globalschoolofyoga.com",
     "website": "https://www.globalschoolofyoga.com/",
     "latitude": 13.120225941751984, 
     "longitude": 80.16930445936042
@@ -42,9 +42,27 @@
     "pincode": "600053",
     "country": "India",
     "phone": ["+91 95516 25800"],
-    "email": "mail2globalschoolofyoga@gmail.com",
+    "email": "ambattur@globalschoolofyoga.com",
     "website": "https://www.globalschoolofyoga.com/",
     "latitude": 13.118882790199299, 
     "longitude": 80.17007011049068
+  },
+{
+    "id": 4,
+    "name": "Global School of Yoga - Purasaivakkam Branch",
+    "type": "Yoga Studio",
+    "address": "Old No 215, New No 168,Purasaivakkam High Rd,Purasaivakkam",
+    "city": "Chennai",
+    "district": "Chennai",
+    "state": "Tamil Nadu",
+    "pincode": "600007",
+    "country": "India",
+    "phone": ["+91 95516 25800"],
+    "email": "purasai@globalschoolofyoga.com",
+    "website": "https://www.globalschoolofyoga.com/",
+    "latitude": 13.085882541177805, 
+    "longitude": 80.25272830917186
   }
 ]
+
+
